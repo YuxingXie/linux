@@ -8,6 +8,7 @@
  
 一些和Linux相关但不是Linux独有的东西我也放到这里研究，不再建立单独的研究项目了，比如git的研究就放到这个项目里。我觉得，只要能使用Linux Terminal实现功能的工具，
 都可以放在这里研究。 
+
  
 ## 一 ：基础篇
 
@@ -107,3 +108,36 @@ scp –r local_dir/* root@10.96.51.81/root/appData/zhnxCityPhoto/smswall
 ### 3.3 gradle
 
 ### 3.4 maven
+
+### 3.5 macOS brew install
+
+作为开发人员最爱的操作系统，苹果macOS系统的brew工具我们也必须得学习以下。
+
+#### 3.5.1 安装brew:
+
+```text
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
+```
+根据提示操作即可完成安装。
+
+#### 3.5.2 brew安装maven
+
+直接brew install maven会报/usr/local/share/man/man8没有权限。
+
+```text
+sudo chown -R xieyuxing /usr/local/share/man/man8
+
+brew install maven
+
+
+```
+以下是mvn -v命令的打印：
+```text
+Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-18T02:33:14+08:00)
+Maven home: /usr/local/Cellar/maven/3.5.4/libexec
+Java version: 1.8.0_131, vendor: Oracle Corporation, runtime: /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/jre
+Default locale: zh_CN, platform encoding: UTF-8
+OS name: "mac os x", version: "10.14", arch: "x86_64", family: "mac"
+```
+
+
