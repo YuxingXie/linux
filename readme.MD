@@ -25,6 +25,18 @@
 
 ### 1.4 远程服务器
 
+拷贝文件到远程服务器指定文件夹：
+```text
+scp local_file.jar user@ip/destdir
+```
+
+
+
+拷贝文件夹内的所有内容至服务器指定文件夹
+```text
+scp –r local_dir/* user@ip/destdir
+```
+
 ## 二：操作篇
 
 ### 2.1 本地部署一个java web应用程序
@@ -36,6 +48,50 @@
 #### 2.1.3 安装mysql
 
 ### 2.2 本地部署一个spring-boot应用程序
+
+项目前端root路径:/home/admin/appData/zhnx_city_photo，程序启动后会自动生成这个目录，启动程序后把前端代码拷贝到这里.
+
+项目上传路径：root:/home/admin/appData/zhnx_city_photo/upload：
+
+小程序端记得改写API url后提交审核；
+
+管理端无需修改了
+
+可以先指定端口部署到服务器测试，无误后改回80端口
+
+在本地打jar包运行测试是否有误
+
+服务端记得改写profile,设置端口等
+
+scp local_file.jar admin@10.96.51.81/opt/zhnx
+
+如果permision denied,登录服务器，执行chomd 777 /opt/zhnx
+
+
+
+进入目录后：java –jar xxxxx.jar
+
+拷贝编译后的前端代码至服务器
+
+创建的工作目录为/root/appData/zhnxCityPhoto/smswall
+此目录需授权，切换到root用户：
+
+su root
+
+传输文件夹,注意用户是root否则永远permision denied：
+scp –r local_dir root@10.96.51.81/root/appData/zhnxCityPhoto/smswall
+
+浏览器输入网址404，猜想应该是admin启动程序权限不够不能访问静态文件夹造成的，切换到root启动程序
+su root
+java –jar xxx.jar
+
+实际上并不是这个原因，而是拷贝的时候把静态文件的上层文件夹也拷贝过来了
+
+正确的命令是：
+
+scp –r local_dir/* root@10.96.51.81/root/appData/zhnxCityPhoto/smswall
+
+成功！
 
 ### 2.3 从GitHub克隆一个java项目并使用gradle构建jar
 
