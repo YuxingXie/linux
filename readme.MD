@@ -24,6 +24,9 @@
 
 
 ### 1.2 环境变量
+
+设置环境变量方法不止一个，但如下这个是比较推荐的做法。
+
 /etc/profile.d下新建一个xxx.sh文件，内容如下：
 ```text
 export SOME_VARIABLE=some value
