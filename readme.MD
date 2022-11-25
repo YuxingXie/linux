@@ -48,7 +48,12 @@ GATEWAY="192.168.80.1"
 这样IP就固定了。如果你的linux运行在VMWare这类虚拟机上，还要配置:
 
 1* 编辑-->虚拟网络编辑器...
+选中网卡后：
 ![](https://github.com/YuxingXie/linux/blob/master/assets/img/001.png)
+
+2* NAT设置(s)...
+![](https://github.com/YuxingXie/linux/blob/master/assets/img/002.png)
+
 
 ### 1.4 软件安装
 
