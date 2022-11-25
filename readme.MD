@@ -18,8 +18,23 @@
 
 #### 1.1.2 Linux文件基本操作
 
-### 1.2 环境变量
+* 移动
 
+* 重命名
+
+
+### 1.2 环境变量
+/etc/profile.d下新建一个xxx.sh文件，内容如下：
+```text
+export SOME_VARIABLE=some value
+```
+保存后：
+```text
+#source命令让环境变量生效
+source /etc/profile
+#打印环境变量SOME_VARIABLE的值
+env $SOME_VARIABLE
+```
 
 ### 1.3 网络配置
 
