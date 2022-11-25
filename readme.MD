@@ -53,7 +53,7 @@ GATEWAY="192.168.80.1"
 
 选中网卡后：
 
-![](https://github.com/YuxingXie//linux/blob/master/assets/img/linux001.png)
+![](https://github.com/YuxingXie/linux/blob/master/assets/img/linux001.png)
 
 2. NAT设置(s)...
 
