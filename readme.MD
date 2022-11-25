@@ -49,10 +49,10 @@ GATEWAY="192.168.80.1"
 
 1* 编辑-->虚拟网络编辑器...
 选中网卡后：
-![](https://github.com/YuxingXie/linux/blob/master/assets/img/001.png)
+![](https://github.com/YuxingXie//linux/blob/master/assets/img/linux001.png)
 
 2* NAT设置(s)...
-![](https://github.com/YuxingXie/linux/blob/master/assets/img/002.png)
+![](https://github.com/YuxingXie/linux/blob/master/assets/img/linux002.png)
 
 
 ### 1.4 软件安装
