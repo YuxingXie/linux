@@ -92,7 +92,44 @@ docker run hello-world
 
 #### 1.4.3 gitLab安装
 
+##### 1：docker下安装
+以下皆root权限操作。
 
+```text
+## 1. 设置环境变量$GITLAB_HOME，在/etc/profile.d下创建一个gitlab.sh文件，然后source一下：
+cd /etc/profile.d
+touch gitlab.sh
+vi gitlab.sh
+#输入如下内容后保存退出
+export GITLAB_HOME=/etc/gitlab
+
+#退出vi后执行
+source /etc/profile
+env $GITLAB_HOME
+## 2. docker安装gitlab
+#启动docker
+systemctl start docker
+#拉取镜像
+docker pull gitlab/gitlab-ce
+#启动镜像生成容器
+docker run --detach --hostname gitlab.example.com --publish 192.168.80.128:443:443 --publish 192.168.80.128:80:80 --name gitlab --restart always --volume $GITLAB_HOME/config:/etc/gitlab --volume $GITLAB_HOME/logs:/var/log/gitlab --volume $GITLAB_HOME/data:/var/opt/gitlab gitlab/gitlab-ce:latest
+
+```
+进入容器获取密码：
+```text
+docker exec -it gitlab /bin/bash
+cat /etc/gitlab/initial_root_password
+```
+获得密码，拷贝下来。
+
+需要稍等一会，然后在浏览器输入ip访问，会跳转到 http://192.168.80.128/users/sign_in，
+用户名root，密码为刚刚取得的密码，24小时失效，速改： http://192.168.80.128/-/profile/password/edit
+
+最少8位，研究阶段搞个“12345678”就行了。
+
+用hostname访问还不行，大概要配hosts什么的吧，先不研究了。
+
+##### 2：直接安装
 
 ### 1.5 远程服务器
 
