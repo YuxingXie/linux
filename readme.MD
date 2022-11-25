@@ -166,6 +166,28 @@ date -s "2018-10-31 10:14:35"
 ```text
 hwclock --systohc
 ```
+
+#### 1.5.2 lsof命令
+
+lsof查看端口号使用的进程.
+```text
+#安装lsof
+yum install lsof
+#查看8080端口占用线程
+lsof -i:8080
+```
+
+#### 1.5.3 jps命令
+ps(Java Virtual Machine Process Status Tool)是JDK 1.5提供的一个显示当前所有java进程pid的命令，
+简单实用，非常适合在linux/unix平台上简单察看当前java进程的一些简单情况。
+
+```text
+#这个命令前提是先安装了JDK
+yum install java-1.8.0-openjdk-devel.x86_64
+```
+安装完成后即可使用jps。
+
+
 ## 二：操作篇
 
 ### 2.1 本地部署一个java web应用程序
