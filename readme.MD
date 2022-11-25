@@ -67,6 +67,27 @@ GATEWAY="192.168.80.1"
 
 #### 1.4.1 docker安装
 
+#### centOS安装docker
+
+https://docs.docker.com/engine/install/centos/
+
+```text
+yum -y install gcc
+yum -y install gcc-c++
+#安装docker仓库
+yum install -y yum-utils
+#添加阿里云镜像
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+yum makecache fast
+yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+#启动docker
+systemctl start docker
+ps -ef|grep docker
+#启动hello-world
+docker run hello-world
+#curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
+
 #### 1.4.2 rabbitMQ安装
 
 #### 1.4.3 gitLab安装
