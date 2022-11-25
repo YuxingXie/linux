@@ -21,10 +21,46 @@
 ### 1.2 环境变量
 
 
-### 1.3 软件安装
+### 1.3 网络配置
+
+#### 1.3.1 ip地址设置
+
+固定ip地址配置：
+
+```text
+cd /etc/sysconfig/network-scripts
+ls -a
+```
+这时可以看到一些类似ifcfg-xxx之类的文件，xxx大概是网卡的名字，不知道可以用ip addr命令查找一下，我的是ens33，所以我要改的文件是ifcfg-ens33。
+
+其中ifcfg-lo是使用主机模式时的配置吧(不太懂)，这个不是我们要改的。
+
+```text
+ vi ifcfg-ens33
+```
+要改这些地方：
+```text
+BOOTPROTO="static"
+IPADDR="192.168.80.128"
+NETMASK="255.255.255.0"
+GATEWAY="192.168.80.1"
+```
+这样IP就固定了。如果你的linux运行在VMVare这类虚拟机上，还要配置:
+
+1* 编辑-->虚拟网络编辑器...
+![](https://github.com/YuxingXie/linux/blob/master/assets/img/001.png)
+
+### 1.4 软件安装
+
+#### 1.4.1 docker安装
+
+#### 1.4.2 rabbitMQ安装
+
+#### 1.4.3 gitLab安装
 
 
-### 1.4 远程服务器
+
+### 1.5 远程服务器
 
 拷贝文件到远程服务器指定文件夹：
 ```text
@@ -132,7 +168,6 @@ scp –r local_dir/* root@10.96.51.81/root/appData/zhnxCityPhoto/smswall
 
 ### 3.5 macOS brew install
 
-作为开发人员最爱的操作系统，苹果macOS系统的brew工具我们也必须得学习以下。
 
 #### 3.5.1 安装brew:
 
