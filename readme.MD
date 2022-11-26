@@ -216,8 +216,12 @@ jre路径是“/usr/lib/jvm/jre-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64/”�
 不要直接copy我的文字，进入/usr/lib/jvm目录ls看一下真正的目录名称，可能个别字符不一样。
 ### 1.6 git相关
 
-#### 1.6.1 errno 10054
-使用git获取github上代码时报错：OpenSSL SSL_read: Connection was reset, errno 10054
+#### 1.6.1 安装git
+```text
+yum install git
+```
+#### 1.6.2 errno 10054
+报错：OpenSSL SSL_read: Connection was reset, errno 10054
 ```text
 git config --global http.sslVerify "false" 
 ```
