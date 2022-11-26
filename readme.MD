@@ -214,6 +214,13 @@ yum install -y java-1.8.0-openjdk
 安装完以后不知道$JAVA_HOME设置什么值？直接告诉你吧，就是“/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64/”。
 jre路径是“/usr/lib/jvm/jre-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64/”。
 不要直接copy我的文字，进入/usr/lib/jvm目录ls看一下真正的目录名称，可能个别字符不一样。
+### 1.6 git相关
+
+#### 1.6.1 errno 10054
+使用git获取github上代码时报错：OpenSSL SSL_read: Connection was reset, errno 10054
+```text
+git config --global http.sslVerify "false" 
+```
 
 ## 二：操作篇
 
