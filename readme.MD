@@ -214,6 +214,25 @@ yum install -y java-1.8.0-openjdk
 安装完以后不知道$JAVA_HOME设置什么值？直接告诉你吧，就是“/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64/”。
 jre路径是“/usr/lib/jvm/jre-1.8.0-openjdk-1.8.0.352.b08-2.el7_9.x86_64/”。
 不要直接copy我的文字，进入/usr/lib/jvm目录ls看一下真正的目录名称，可能个别字符不一样。
+
+#### 1.5.4 nohup后台运行程序
+
+不指定输出会默认输出到目录下的nohup.out文件下，并出现一个警告。有时候这个警告是致命的，比如在一些自动构建工具如jenkins中，它需要等待服务器命令结束，
+这个警告会让它一直等待。
+
+```text
+# 后台runoob.sh并输出到runoob.log文件
+nohup /root/runoob.sh > runoob.log 2>&1 &
+```
+
+##### 2>&1 解释：
+
+将标准错误 2 重定向到标准输出 &1 ，标准输出 &1 再被重定向输入到 runoob.log 文件中。
+
+* 0 – stdin (standard input，标准输入)
+* 1 – stdout (standard output，标准输出)
+* 2 – stderr (standard error，标准错误输出)
+
 ### 1.6 git相关
 
 #### 1.6.1 安装git
